@@ -67,35 +67,33 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void PostWithAsync()
+        public async void PostWithAsync()
         {
             var client = new RestClient("http://localhost:3000/");
             var request = new RestRequest("posts/", Method.POST);
 
             request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(new Posts { id = "4", author = "API Test", title = "RestSharp API" });
+            request.AddJsonBody(new Posts { id = "5", author = "API Test", title = "RestSharp API" });
 
-            var response = client.Execute<Posts>(request);
+            //var response = client.Execute<Posts>(request);
 
-            //var deserialize = new JsonDeserializer();
-            //var output = deserialize.Deserialize<Dictionary<string, string>>(response);
-            //var result = output["author"];
+            var response = ExecuteAsyncRequest<Posts>(client, request).GetAwaiter().GetResult();
 
             NUnit.Framework.Assert.That(response.Data.author, Is.EqualTo("API Test"), "Incorrect!");
         }
 
-        private async Task<IRestResponse<T>> ExecuteAsyncRequest<T>(RestClient client, IRestRequest request)
+        private async Task<IRestResponse<T>> ExecuteAsyncRequest<T>(RestClient client, IRestRequest request) where T: class, new()
         {
             var taskCompletionSource = new TaskCompletionSource<IRestResponse<T>>();
 
-            client.ExecuteAsync<T>(request, restresponse =>
+            client.ExecuteAsync<T>(request, restResponse =>
             {
-                if (restresponse.ErrorException != null)
+                if (restResponse.ErrorException != null)
                 {
                     const string message = "Error retrieving response.";
-                    throw new ApplicationException(message, restresponse.ErrorException);
+                    throw new ApplicationException(message, restResponse.ErrorException);
                 }
-                taskCompletionSource.SetResult(restresponse);
+                taskCompletionSource.SetResult(restResponse);
             });
             return await taskCompletionSource.Task;
         }

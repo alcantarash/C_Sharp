@@ -14,10 +14,11 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTest1
     {
+        public string url  = "http://localhost:3000/";
         [TestMethod]
         public void TestMethod1()
         {
-            var client = new RestClient("http://localhost:3000/");
+            var client = new RestClient(url);
             var request = new RestRequest("posts/{postid}", Method.GET);
 
             request.AddUrlSegment("postid", 1);
@@ -33,7 +34,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void PostWithAnonymousBody()
         {
-            var client = new RestClient("http://localhost:3000/");
+            var client = new RestClient(url);
             var request = new RestRequest("posts/{postid}/profile", Method.POST);
 
             request.RequestFormat = DataFormat.Json;
@@ -50,7 +51,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void PostWithTypeClassBody()
         {
-            var client = new RestClient("http://localhost:3000/");
+            var client = new RestClient(url);
             var request = new RestRequest("posts/", Method.POST);
 
             request.RequestFormat = DataFormat.Json;
@@ -64,7 +65,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void PostWithAsync()
         {
-            var client = new RestClient("http://localhost:3000/");
+            var client = new RestClient(url);
             var request = new RestRequest("posts/", Method.POST);
 
             request.RequestFormat = DataFormat.Json;

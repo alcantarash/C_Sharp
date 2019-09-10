@@ -22,7 +22,7 @@ namespace UnitTestProject1.Utilities
         public static string GetResponseObject(this IRestResponse response, string responseObject)
         {
             JObject obs = JObject.Parse(response.Content);
-            return obs[responseObject].ToStirng();
+            return obs[responseObject].ToString();
         }
         public static async Task<IRestResponse<T>> ExecuteAsyncRequest<T>(this RestClient client, IRestRequest request) where T : class, new()
         {

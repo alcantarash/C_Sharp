@@ -48,5 +48,13 @@ namespace DummyRestAPI
 
             response.StatusCode.Equals(200);
         }
+        [Test]
+        public void PutRequest()
+        {
+            RestClient client = new RestClient(url);
+            RestRequest request = new RestRequest("update/{id}", Method.PUT);
+
+            request.AddUrlSegment("id", 156696);
+        }
     }
 }

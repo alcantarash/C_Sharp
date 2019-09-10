@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DummyRestAPI.Libraries;
 //using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
@@ -54,7 +55,17 @@ namespace DummyRestAPI
             RestClient client = new RestClient(url);
             RestRequest request = new RestRequest("update/{id}", Method.PUT);
 
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody(new { name = "Raj", salary = "1", age = "100" });
             request.AddUrlSegment("id", 156696);
+
+            var response = client.Execute(request);
+            var result = response.DeserializeResponse()["name"];
+
+            if (response.StatusCode.Equals(200))
+            {
+                Assert.That(response, Is.EqualTo("Raj"), "Editing Done!");
+            }
         }
     }
 }

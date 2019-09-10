@@ -7,6 +7,7 @@ using RestSharp;
 using RestSharp.Deserializers;
 using RestSharp.Serialization.Json;
 using UnitTestProject1.Model;
+using UnitTestProject1.Utilities;
 
 namespace UnitTestProject1
 {
@@ -41,9 +42,7 @@ namespace UnitTestProject1
             request.AddUrlSegment("postid", 1);
             var response = client.Execute(request);
 
-            var deserialize = new JsonDeserializer();
-            var output = deserialize.Deserialize<Dictionary<string, string>>(response);
-            var result = output["name"];
+            var result = response.DeserializeResponse()["name"];
 
             NUnit.Framework.Assert.That(result, Is.EqualTo("Rajesh"), "Incorrect!");
         }
@@ -59,15 +58,11 @@ namespace UnitTestProject1
 
             var response = client.Execute<Posts>(request);
 
-            //var deserialize = new JsonDeserializer();
-            //var output = deserialize.Deserialize<Dictionary<string, string>>(response);
-            //var result = output["author"];
-
             NUnit.Framework.Assert.That(response.Data.author, Is.EqualTo("API Test"), "Incorrect!");
         }
 
         [TestMethod]
-        public async void PostWithAsync()
+        public void PostWithAsync()
         {
             var client = new RestClient("http://localhost:3000/");
             var request = new RestRequest("posts/", Method.POST);
@@ -77,25 +72,9 @@ namespace UnitTestProject1
 
             //var response = client.Execute<Posts>(request);
 
-            var response = ExecuteAsyncRequest<Posts>(client, request).GetAwaiter().GetResult();
+            var response = client.ExecuteAsyncRequest<Posts>(request).GetAwaiter().GetResult();
 
             NUnit.Framework.Assert.That(response.Data.author, Is.EqualTo("API Test"), "Incorrect!");
-        }
-
-        private async Task<IRestResponse<T>> ExecuteAsyncRequest<T>(RestClient client, IRestRequest request) where T: class, new()
-        {
-            var taskCompletionSource = new TaskCompletionSource<IRestResponse<T>>();
-
-            client.ExecuteAsync<T>(request, restResponse =>
-            {
-                if (restResponse.ErrorException != null)
-                {
-                    const string message = "Error retrieving response.";
-                    throw new ApplicationException(message, restResponse.ErrorException);
-                }
-                taskCompletionSource.SetResult(restResponse);
-            });
-            return await taskCompletionSource.Task;
         }
     }
 }

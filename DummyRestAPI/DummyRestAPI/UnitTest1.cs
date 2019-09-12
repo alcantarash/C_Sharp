@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using DummyRestAPI.Libraries;
 using DummyRestAPI.Models;
 //using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -7,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using RestSharp;
 using RestSharp.Serialization.Json;
+using System.Text.RegularExpressions;
 
 namespace DummyRestAPI
 {
@@ -48,30 +50,36 @@ namespace DummyRestAPI
             {
                 RequestFormat = DataFormat.Json
             };
-            request.AddJsonBody(new Employee{ name = "Who13", salary = 10000, age = 10 });
+            //for(int i = 1; i <= 10; i++)
+            //{
+                request.AddJsonBody(new Employee { name = "Who", salary = 10000, age = 10 });
 
-            var response = client.Execute(request);
-            int statusCode = (int)response.StatusCode;
+                var response = client.Execute(request);
+                int statusCode = (int)response.StatusCode;
 
-            if (statusCode == 200)
-            {
-                if (response.Content.Contains("Who13"))
+                if (statusCode == 200)
                 {
-                    var id_employee = response.DeserializeResponse()["id"];
-                    var name_employee = response.DeserializeResponse()["name"];
-                    Console.WriteLine("This is ID code generated: " + id_employee);
+                    if (response.Content.Contains("Who"))
+                    {
+                        var id_employee = response.DeserializeResponse()["id"];
+                        var name_employee = response.DeserializeResponse()["name"];
+                        Console.WriteLine("This is ID code generated: " + id_employee);
+                    }
+                    else
+                    {
+                        Assert.Fail("Error Request! - First Else");
+                        Console.WriteLine(response.Content);
+                    }
                 }
                 else
                 {
-                    Assert.Fail("Error Request! - First Else");
+                    Assert.Fail("Error Request! - Second Else");
                     Console.WriteLine(response.Content);
                 }
-            }
-            else
-            {
-                Assert.Fail("Error Request! - Second Else");
-                Console.WriteLine(response.Content);
-            }
+            //}
+
+            //client.CookieContainer = new CookieContainer();
+           
         }
         [Test]
         public void PutRequest()
@@ -81,20 +89,24 @@ namespace DummyRestAPI
             {
                 RequestFormat = DataFormat.Json
             };
-            request.AddJsonBody(new Employee{ name = "Raj1", salary = 3, age = 100 });
-            request.AddUrlSegment("id", 161050);
+            request.AddJsonBody(new Employee { name = "Raj", salary = 3, age = 100 });
+            request.AddUrlSegment("id", 163008);
 
             var response = client.Execute(request);
+
+            Match match = Regex.Match(response.Content, "\"name\":\"(.+)\",\"salary\":\"(.+)\",\"age\":\"(.+)\"",
+            RegexOptions.IgnoreCase);
 
             //Console.WriteLine(response.Content);
 
             int statusCode = (int)response.StatusCode;
             if (statusCode == 200)
             {
-                if (response.Content.Regex
+                if (match.Success)
                 {
                     var result = response.DeserializeResponse()["name"];
-                    Assert.That(result, Is.EqualTo("Raj1"), "Editing Done!");
+                    Assert.That(result, Is.EqualTo("Raj"), "Assertion Failed!");
+                    Console.WriteLine(response.Content);
                 }
                 else
                 {

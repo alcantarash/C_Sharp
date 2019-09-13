@@ -15,6 +15,7 @@ namespace DummyRestAPI
     [TestFixture]
     public class UnitTest1
     {
+        Employee a;
         public string url = "http://dummy.restapiexample.com/api/v1/";
         [Test]
         public void TestMethod1()
@@ -50,21 +51,25 @@ namespace DummyRestAPI
             {
                 RequestFormat = DataFormat.Json
             };
-            for (int i = 1; i <= 10; i++)
-            {
-                request.AddJsonBody(new Employee { name = "Whos0" + i, salary = 10000, age = 10 });
+            //for (int i = 1; i <= 10; i++)
+            //{
+                a = new Employee("Whos3", 1, 1);
+                request.AddJsonBody(a);
 
                 var response = client.Execute(request);
                 int statusCode = (int)response.StatusCode;
+         
+                Match match = Regex.Match(response.Content, "\"name\":\"" +a.name+ "\",\"salary\":\"" +a.salary+ "\",\"age\":\"" +a.age+ "\"",
+                RegexOptions.IgnoreCase);
 
-                if (statusCode == 200)
+            if (statusCode == 200)
                 {
-                    if (response.Content.Contains("Whos0" + i))
+                    if (match.Success)
                     {
                         var id_employee = response.DeserializeResponse()["id"];
                         var name_employee = response.DeserializeResponse()["name"];
                         Console.WriteLine("This is ID code generated: " + id_employee);
-                    }
+                }
                     else
                     {
                         Assert.Fail("Error Request! - First Else");
@@ -76,7 +81,7 @@ namespace DummyRestAPI
                     Assert.Fail("Error Request! - Second Else");
                     Console.WriteLine(response.Content);
                 }
-            }
+            //}
 
             //client.CookieContainer = new CookieContainer();
 
@@ -89,12 +94,13 @@ namespace DummyRestAPI
             {
                 RequestFormat = DataFormat.Json
             };
-            request.AddJsonBody(new Employee { name = "Raj", salary = 3, age = 100 });
+            a = new Employee("Who", 1, 1);
+            request.AddJsonBody(a);
             request.AddUrlSegment("id", 163008);
 
             var response = client.Execute(request);
 
-            Match match = Regex.Match(response.Content, "\"name\":\"(.+)\",\"salary\":\"(.+)\",\"age\":\"(.+)\"",
+            Match match = Regex.Match(response.Content, "\"name\":\"" + a.name + "\",\"salary\":\"" + a.salary + "\",\"age\":\"" + a.age + "\"",
             RegexOptions.IgnoreCase);
 
             //Console.WriteLine(response.Content);
@@ -115,7 +121,6 @@ namespace DummyRestAPI
                 }
             }
         }
-
         [Test]
         public void DeleteRequest()
         {

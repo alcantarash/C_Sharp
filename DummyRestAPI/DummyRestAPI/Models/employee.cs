@@ -13,11 +13,12 @@ namespace DummyRestAPI.Models
         public int salary { get; set; }
         public int age { get; set; }
 
+
         //public Employee(string name, int salary, int age)
         //{
         //    this.name = name;
         //    this.salary = salary;
-        //    this.age = age;
+        //    this.age = age;                
         //}
     }
 }

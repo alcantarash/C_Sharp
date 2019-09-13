@@ -50,16 +50,16 @@ namespace DummyRestAPI
             {
                 RequestFormat = DataFormat.Json
             };
-            //for(int i = 1; i <= 10; i++)
-            //{
-                request.AddJsonBody(new Employee { name = "Who", salary = 10000, age = 10 });
+            for (int i = 1; i <= 10; i++)
+            {
+                request.AddJsonBody(new Employee { name = "Whos0" + i, salary = 10000, age = 10 });
 
                 var response = client.Execute(request);
                 int statusCode = (int)response.StatusCode;
 
                 if (statusCode == 200)
                 {
-                    if (response.Content.Contains("Who"))
+                    if (response.Content.Contains("Whos0" + i))
                     {
                         var id_employee = response.DeserializeResponse()["id"];
                         var name_employee = response.DeserializeResponse()["name"];
@@ -76,10 +76,10 @@ namespace DummyRestAPI
                     Assert.Fail("Error Request! - Second Else");
                     Console.WriteLine(response.Content);
                 }
-            //}
+            }
 
             //client.CookieContainer = new CookieContainer();
-           
+
         }
         [Test]
         public void PutRequest()
@@ -113,6 +113,36 @@ namespace DummyRestAPI
                     Console.WriteLine(response.Content);
                     Assert.Fail("Error Request! - First Else");
                 }
+            }
+        }
+
+        [Test]
+        public void DeleteRequest()
+        {
+            RestClient client = new RestClient(url);
+            RestRequest request = new RestRequest("delete/{id}", Method.DELETE)
+            {
+                RequestFormat = DataFormat.Json
+            };
+            request.AddUrlSegment("id", 165702);
+
+            var response = client.Execute(request);
+            int statusCode = (int)response.StatusCode;
+
+            Match match = Regex.Match(response.Content, "\"success\":{\"text\":\"successfully! deleted Records\"}",
+            RegexOptions.IgnoreCase);
+
+            if(statusCode == 200)
+            {
+                if (match.Success)
+                {
+                    Console.WriteLine(response.Content);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Status Code -> " + statusCode);
+                Console.WriteLine(response.Content);
             }
         }
     }

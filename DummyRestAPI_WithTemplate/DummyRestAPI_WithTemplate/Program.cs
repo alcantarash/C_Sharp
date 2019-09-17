@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APIForGooglePlayGameServices
+namespace DummyRestAPI_WithTemplate
 {
     class Program
     {

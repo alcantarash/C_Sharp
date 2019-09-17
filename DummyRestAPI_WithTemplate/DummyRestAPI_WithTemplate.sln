@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIForGooglePlayGameServices", "APIForGooglePlayGameServices\APIForGooglePlayGameServices.csproj", "{14C8EB52-0D1C-469D-88A5-25BD5982A95D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyRestAPI_WithTemplate", "DummyRestAPI_WithTemplate\DummyRestAPI_WithTemplate.csproj", "{1508C031-E995-4761-87F6-701AEC257684}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{14C8EB52-0D1C-469D-88A5-25BD5982A95D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{14C8EB52-0D1C-469D-88A5-25BD5982A95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{14C8EB52-0D1C-469D-88A5-25BD5982A95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{14C8EB52-0D1C-469D-88A5-25BD5982A95D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1508C031-E995-4761-87F6-701AEC257684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1508C031-E995-4761-87F6-701AEC257684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1508C031-E995-4761-87F6-701AEC257684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1508C031-E995-4761-87F6-701AEC257684}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A5A9EEEA-A581-4E18-848B-E90BAEDE3474}
+		SolutionGuid = {52A270B8-C891-4FDC-BD50-74097751D73D}
 	EndGlobalSection
 EndGlobal

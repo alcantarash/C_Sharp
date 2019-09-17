@@ -1,12 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="APIForGooglePlayGameServices.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DummyRestAPI_WithTemplate.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="url" Type="System.String" Scope="User">
-      <Value Profile="(Default)"> https://www.googleapis.com/games/v1</Value>
+    <Setting Name="URL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://dummy.restapiexample.com/api/v1</Value>
     </Setting>
     <Setting Name="REPORT_NAME" Type="System.String" Scope="User">
-      <Value Profile="(Default)">APIForGooglePlayGameServices</Value>
+      <Value Profile="(Default)">DummyRestAPI_WithTemplate</Value>
     </Setting>
     <Setting Name="AUTHENTICATOR_USER" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -16,6 +16,9 @@
     </Setting>
     <Setting Name="REPORT_SUBSTRING_LENGTH" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">29</Value>
+    </Setting>
+    <Setting Name="TOKEN" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

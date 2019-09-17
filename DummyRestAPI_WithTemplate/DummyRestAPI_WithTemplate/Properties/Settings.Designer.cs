@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace APIForGooglePlayGameServices.Properties {
+namespace DummyRestAPI_WithTemplate.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,19 +25,19 @@ namespace APIForGooglePlayGameServices.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(" https://www.googleapis.com/games/v1")]
-        public string url {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://dummy.restapiexample.com/api/v1")]
+        public string URL {
             get {
-                return ((string)(this["url"]));
+                return ((string)(this["URL"]));
             }
             set {
-                this["url"] = value;
+                this["URL"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("APIForGooglePlayGameServices")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DummyRestAPI_WithTemplate")]
         public string REPORT_NAME {
             get {
                 return ((string)(this["REPORT_NAME"]));
@@ -80,6 +80,18 @@ namespace APIForGooglePlayGameServices.Properties {
             }
             set {
                 this["REPORT_SUBSTRING_LENGTH"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TOKEN {
+            get {
+                return ((string)(this["TOKEN"]));
+            }
+            set {
+                this["TOKEN"] = value;
             }
         }
     }

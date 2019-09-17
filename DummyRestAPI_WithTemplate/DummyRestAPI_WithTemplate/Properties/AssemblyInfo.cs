@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associadas a um assembly.
-[assembly: AssemblyTitle("APIForGooglePlayGameServices")]
+[assembly: AssemblyTitle("DummyRestAPI_WithTemplate")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("APIForGooglePlayGameServices")]
+[assembly: AssemblyProduct("DummyRestAPI_WithTemplate")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("14c8eb52-0d1c-469d-88a5-25bd5982a95d")]
+[assembly: Guid("1508c031-e995-4761-87f6-701aec257684")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //

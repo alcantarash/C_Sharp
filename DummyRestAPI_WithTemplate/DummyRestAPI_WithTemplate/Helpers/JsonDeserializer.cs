@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APIForGooglePlayGameServices.Helpers
+namespace DummyRestAPI_WithTemplate.Helpers
 {
     public class JsonDeserializer : IDeserializer
     {

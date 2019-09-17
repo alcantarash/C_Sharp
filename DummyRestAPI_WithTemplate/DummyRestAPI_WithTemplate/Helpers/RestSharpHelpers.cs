@@ -8,20 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APIForGooglePlayGameServices.Helpers
+namespace DummyRestAPI_WithTemplate.Helpers
 {
+    [Obsolete]
     public class RestSharpHelpers
     {
-        [Obsolete]
         public static IRestResponse<dynamic> ExecuteRequest(string url,
-                                                            string requestService,
-                                                            Method method,
-                                                            IDictionary<string, string> headers,
-                                                            IDictionary<string, string> cookies,
-                                                            IDictionary<string, string> parameters,
-                                                            string jsonBody,
-                                                            bool httpBasicAuthenticator,
-                                                            bool ntlmAuthenticator)
+                                                           string requestService,
+                                                           Method method,
+                                                           IDictionary<string, string> headers,
+                                                           IDictionary<string, string> cookies,
+                                                           IDictionary<string, string> parameters,
+                                                           string jsonBody,
+                                                           bool httpBasicAuthenticator,
+                                                           bool ntlmAuthenticator)
         {
             RestRequest request = new RestRequest(requestService, method);
 

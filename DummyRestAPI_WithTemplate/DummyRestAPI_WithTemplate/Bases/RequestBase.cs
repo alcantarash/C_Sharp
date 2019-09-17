@@ -1,4 +1,4 @@
-﻿using APIForGooglePlayGameServices.Helpers;
+﻿using DummyRestAPI_WithTemplate.Helpers;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -6,13 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APIForGooglePlayGameServices.Bases
+namespace DummyRestAPI_WithTemplate.Bases
 {
-    class RequestBase
+    public class RequestBase
     {
         #region Parameters
         protected string jsonBody = null;
-        protected string url = Properties.Settings.Default.url;
+
+        protected string url = Properties.Settings.Default.URL;
+
         protected string requestService = null;
 
         protected Method method;
@@ -25,7 +27,7 @@ namespace APIForGooglePlayGameServices.Bases
         {
             //Dicionário de headeres deve ser iniciado com os headers comuns a todos os métodos da API
             {"Content-Type", "application/json"}
-           // {"Authorization", "Bearer "+Properties.Settings.Default.TOKEN}
+            //{"Authorization", "Bearer "+Properties.Settings.Default.TOKEN}
         };
 
         protected IDictionary<string, string> cookies = new Dictionary<string, string>()
@@ -37,6 +39,7 @@ namespace APIForGooglePlayGameServices.Bases
         #endregion
 
         #region Actions
+        [Obsolete]
         public IRestResponse<dynamic> ExecuteRequest()
         {
             IRestResponse<dynamic> response = RestSharpHelpers.ExecuteRequest(url, requestService, method, headers, cookies, parameters, jsonBody, httpBasicAuthenticator, ntlmAuthenticator);

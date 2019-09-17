@@ -11,9 +11,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APIForGooglePlayGameServices.Helpers
+namespace DummyRestAPI_WithTemplate.Helpers
 {
-   public class ExtentReportHelpers
+    public class ExtentReportHelpers
     {
         public static ExtentReports EXTENT_REPORT = null;
         public static ExtentTest TEST;
@@ -106,10 +106,10 @@ namespace APIForGooglePlayGameServices.Helpers
                 TEST.Log(Status.Info, "<pre>" + "<b>COOKIES: </b>" + allCookies + "</pre>");
             }
 
-            if (httpBasicAuthenticator || ntlmAuthenticator)
-            {
-                TEST.Log(Status.Info, "<pre>" + "<b>AUTHENTICATOR: </b>" + "\n" + "<b>USER: </b>" + Properties.Settings.Default.AUTHENTICATOR_USER + "\n" + "<b>PASSWORD: </b>" + Properties.Settings.Default.AUTHENTICATOR_PASSWORD + "</pre>");
-            }
+            //if (httpBasicAuthenticator || ntlmAuthenticator)
+            //{
+            //    TEST.Log(Status.Info, "<pre>" + "<b>AUTHENTICATOR: </b>" + "\n" + "<b>USER: </b>" + Properties.Settings.Default.AUTHENTICATOR_USER + "\n" + "<b>PASSWORD: </b>" + Properties.Settings.Default.AUTHENTICATOR_PASSWORD + "</pre>");
+            //}
 
             HttpStatusCode statusCode = response.StatusCode;
             int numericStatusCode = (int)statusCode;

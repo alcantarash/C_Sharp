@@ -11,11 +11,11 @@ using UnitTestProject1.Utilities;
 
 namespace UnitTestProject1
 {
-    [TestClass]
+    [TestFixture]
     public class UnitTest1
     {
         public string url  = "http://localhost:3000/";
-        [TestMethod]
+        [Test]
         public void TestMethod1()
         {
             var client = new RestClient(url);
@@ -31,7 +31,7 @@ namespace UnitTestProject1
             NUnit.Framework.Assert.That(result, Is.EqualTo("typicode"), "Incorrect!");
         }
 
-        [TestMethod]
+        [Test]
         public void PostWithAnonymousBody()
         {
             var client = new RestClient(url);
@@ -48,7 +48,7 @@ namespace UnitTestProject1
             NUnit.Framework.Assert.That(result, Is.EqualTo("Rajesh"), "Incorrect!");
         }
 
-        [TestMethod]
+        [Test]
         public void PostWithTypeClassBody()
         {
             var client = new RestClient(url);
@@ -62,7 +62,7 @@ namespace UnitTestProject1
             NUnit.Framework.Assert.That(response.Data.author, Is.EqualTo("API Test"), "Incorrect!");
         }
 
-        [TestMethod]
+        [Test]
         public void PostWithAsync()
         {
             var client = new RestClient(url);

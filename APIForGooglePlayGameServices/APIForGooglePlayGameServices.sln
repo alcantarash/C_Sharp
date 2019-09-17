@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIForGooglePlayGameServices", "APIForGooglePlayGameServices\APIForGooglePlayGameServices.csproj", "{14C8EB52-0D1C-469D-88A5-25BD5982A95D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14C8EB52-0D1C-469D-88A5-25BD5982A95D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14C8EB52-0D1C-469D-88A5-25BD5982A95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14C8EB52-0D1C-469D-88A5-25BD5982A95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14C8EB52-0D1C-469D-88A5-25BD5982A95D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5A9EEEA-A581-4E18-848B-E90BAEDE3474}
+	EndGlobalSection
+EndGlobal

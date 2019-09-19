@@ -106,10 +106,10 @@ namespace DummyRestAPI_WithTemplate.Helpers
                 TEST.Log(Status.Info, "<pre>" + "<b>COOKIES: </b>" + allCookies + "</pre>");
             }
 
-            //if (httpBasicAuthenticator || ntlmAuthenticator)
-            //{
-            //    TEST.Log(Status.Info, "<pre>" + "<b>AUTHENTICATOR: </b>" + "\n" + "<b>USER: </b>" + Properties.Settings.Default.AUTHENTICATOR_USER + "\n" + "<b>PASSWORD: </b>" + Properties.Settings.Default.AUTHENTICATOR_PASSWORD + "</pre>");
-            //}
+            if (httpBasicAuthenticator || ntlmAuthenticator)
+            {
+                TEST.Log(Status.Info, "<pre>" + "<b>AUTHENTICATOR: </b>" + "\n" + "<b>USER: </b>" + Properties.Settings.Default.AUTHENTICATOR_USER + "\n" + "<b>PASSWORD: </b>" + Properties.Settings.Default.AUTHENTICATOR_PASSWORD + "</pre>");
+            }
 
             HttpStatusCode statusCode = response.StatusCode;
             int numericStatusCode = (int)statusCode;

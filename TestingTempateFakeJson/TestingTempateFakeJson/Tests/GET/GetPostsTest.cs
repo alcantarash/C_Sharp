@@ -15,7 +15,7 @@ namespace TestingTempateFakeJson.Tests.GET
     {
         [Test]
         [Obsolete]
-        public void DadosValidos()
+        public void DadosValidos_GetPosts()
         {
             #region Parameters
             string id = "1";
@@ -29,16 +29,13 @@ namespace TestingTempateFakeJson.Tests.GET
 
             GetPostsRequest getpostsrequest = new GetPostsRequest(id);
             IRestResponse<dynamic> response = getpostsrequest.ExecuteRequest();
-            string v = response.Data["id"];
-            string x = response.Data["title"];
-            string y = response.Data["author"].ToString();
+
             Assert.Multiple(() =>
             {
                 Assert.AreEqual(statusCodeEsperado, response.StatusCode.ToString());
                 Assert.AreEqual(id_post, response.Data["id"].ToString());
                 Assert.AreEqual(title_post, response.Data["title"].ToString());
                 Assert.AreEqual(author_post, response.Data["author"].ToString());
-               // Assert.Contains(title_post, response.Data["title"].ToString());
             });
         }
     }

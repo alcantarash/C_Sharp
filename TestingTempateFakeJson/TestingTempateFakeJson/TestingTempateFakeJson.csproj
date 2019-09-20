@@ -106,19 +106,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Requests\GET\GetPostsRequest.cs" />
+    <Compile Include="Requests\POST\PostCommentsRequest.cs" />
+    <Compile Include="Requests\PUT\UpdatePostsRequest.cs" />
     <Compile Include="Tests\GET\GetPostsTest.cs" />
+    <Compile Include="Tests\POST\PostCommentsTest.cs" />
+    <Compile Include="Tests\PUT\UpdatePostsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Jsons\Comments\POST\PostCommentJson.json" />
+    <None Include="Jsons\Posts\PUT\UpdatePostsJson.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Jsons\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

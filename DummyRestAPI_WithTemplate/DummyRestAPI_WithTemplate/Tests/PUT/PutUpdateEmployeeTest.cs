@@ -3,6 +3,7 @@ using DummyRestAPI_WithTemplate.Requests.PUT;
 using NUnit.Framework;
 using RestSharp;
 using System;
+using DummyRestAPI_WithTemplate.Helpers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace DummyRestAPI_WithTemplate.Tests.PUT
     public class PutUpdateEmployeeTest : TestBase
     {
         [Test]
+        [Obsolete]
         public void DadosValidos()
         {
             #region Parameters
@@ -34,7 +36,7 @@ namespace DummyRestAPI_WithTemplate.Tests.PUT
             Assert.Multiple(() =>
             {
                 Assert.AreEqual(statusCodeEsperado, response.StatusCode.ToString());
-                Assert.AreEqual(name, response.Data["name"]);
+                Assert.AreEqual(name, response.Data);
                 Assert.AreEqual(salary, response.Data["salary"]);
                 Assert.AreEqual(age, response.Data["age"]);
             });

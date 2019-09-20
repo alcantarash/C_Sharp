@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TestingTempateFakeJson.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="URL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://localhost:3000</Value>
+    </Setting>
+    <Setting Name="TOKEN" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DB_URL" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DB_NAME" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DB_USER" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DB_PASSWORD" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DB_CONNECTION_TIMEOUT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="REPORT_NAME" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TestingTemplateFakeJson</Value>
+    </Setting>
+    <Setting Name="AUTHENTICATOR_USER" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AUTHENTICATOR_PASSWORD" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="REPORT_SUBSTRING_LENGTH" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">29</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

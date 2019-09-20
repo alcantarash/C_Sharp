@@ -12,6 +12,7 @@ using UnitTestProject1.Utilities;
 namespace UnitTestProject1.Steps
 {
     [Binding]
+    [TestFixture]
     public class GetPostsSteps
     {
         public RestClient client = new RestClient("http://localhost:3000/");
@@ -20,6 +21,7 @@ namespace UnitTestProject1.Steps
 
         [Given(@"I Perform GET operation for ""(.*)""")]
         [Obsolete]
+        [Test]
         public void GivenIPerformGETOperationFor(string url)
         {
             request = new RestRequest(url, Method.GET);
@@ -27,6 +29,7 @@ namespace UnitTestProject1.Steps
 
         [Given(@"I perform operation for post ""(.*)""")]
         [Obsolete]
+        [Test]
         public void GivenIPerformOperationForPost(int postId)
         {
             request.AddUrlSegment("postid", postId.ToString());
@@ -35,6 +38,7 @@ namespace UnitTestProject1.Steps
 
         [Then(@"I should see the ""(.*)"" name as ""(.*)""")]
         [Obsolete]
+        [Test]
         public void ThenIShouldSeeTheNameAs(string key, string value)
         {
             Assert.That(response.GetResponseObject(key), Is.EqualTo(value), $"The {key} is not matching");

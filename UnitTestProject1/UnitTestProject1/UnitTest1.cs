@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using RestSharp;
 using RestSharp.Authenticators;
@@ -99,6 +101,36 @@ namespace UnitTestProject1
 
             var result = client.ExecuteAsyncRequest<Product>(getRequest).GetAwaiter().GetResult();
             NUnit.Framework.Assert.That(result.Data.name, Is.EqualTo("Product001"), "Product OK!");
+        }
+
+        [Test]
+        public void AuthenticationMecanismJson()
+        {
+            var client = new RestClient(url);
+            var request = new RestRequest("auth/login", Method.POST);
+
+            var file = @"TestData\Data.json";
+
+            request.RequestFormat = DataFormat.Json;
+            var jsonData = JsonConvert.DeserializeObject<User>(File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,file)).ToString());
+            request.AddJsonBody(jsonData);
+            var response = client.ExecuteTaskAsync(request).GetAwaiter().GetResult();
+            var access_token = response.DeserializeResponse()["access_token"];
+
+            var jwtAuth = new JwtAuthenticator(access_token);
+            client.Authenticator = jwtAuth;
+
+            var getRequest = new RestRequest("products/{productId}", Method.GET);
+            getRequest.AddUrlSegment("productId", 1);
+
+            var result = client.ExecuteAsyncRequest<Product>(getRequest).GetAwaiter().GetResult();
+            NUnit.Framework.Assert.That(result.Data.name, Is.EqualTo("Product001"), "Product OK!");
+        }
+
+        private class User
+        {
+            public string email { get; set; }
+            public string password { get; set; }
         }
     }
 }

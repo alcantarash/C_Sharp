@@ -91,6 +91,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
     </None>
     <None Include="packages.config" />
+    <EmbeddedResource Include="TestData\Data.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

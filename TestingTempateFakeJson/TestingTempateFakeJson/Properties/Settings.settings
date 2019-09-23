@@ -6,7 +6,7 @@
       <Value Profile="(Default)">http://localhost:3000</Value>
     </Setting>
     <Setting Name="TOKEN" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJydW5vQGVtYWlsLmNvbSIsInBhc3N3b3JkIjoiYnJ1bm8iLCJpYXQiOjE1NjkyNTYyMjQsImV4cCI6MTU2OTI1OTgyNH0.KlkKUIaoIVJCsFDuVlMuf1kqEFJB6U6yVJiWmwMot4g</Value>
     </Setting>
     <Setting Name="DB_URL" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

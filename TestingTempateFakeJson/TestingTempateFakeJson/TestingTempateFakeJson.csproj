@@ -106,9 +106,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Requests\GET\GetPostsRequest.cs" />
+    <Compile Include="Requests\GET\GetProductRequest.cs" />
     <Compile Include="Requests\POST\PostCommentsRequest.cs" />
     <Compile Include="Requests\PUT\UpdatePostsRequest.cs" />
     <Compile Include="Tests\GET\GetPostsTest.cs" />
+    <Compile Include="Tests\GET\GetProductTest.cs" />
     <Compile Include="Tests\POST\PostCommentsTest.cs" />
     <Compile Include="Tests\PUT\UpdatePostsTest.cs" />
   </ItemGroup>

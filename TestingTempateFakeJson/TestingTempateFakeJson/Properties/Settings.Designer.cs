@@ -37,7 +37,9 @@ namespace TestingTempateFakeJson.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJydW5vQGVtYWlsLmNvbSIsInBhc3N3" +
+            "b3JkIjoiYnJ1bm8iLCJpYXQiOjE1NjkyNTYyMjQsImV4cCI6MTU2OTI1OTgyNH0.KlkKUIaoIVJCsFDu" +
+            "VlMuf1kqEFJB6U6yVJiWmwMot4g")]
         public string TOKEN {
             get {
                 return ((string)(this["TOKEN"]));

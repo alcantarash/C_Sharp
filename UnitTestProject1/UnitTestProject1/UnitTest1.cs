@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using RestSharp;
+using RestSharp.Authenticators;
 using RestSharp.Deserializers;
 using RestSharp.Serialization.Json;
 using UnitTestProject1.Model;
@@ -76,6 +77,28 @@ namespace UnitTestProject1
             var response = client.ExecuteAsyncRequest<Posts>(request).GetAwaiter().GetResult();
 
             NUnit.Framework.Assert.That(response.Data.author, Is.EqualTo("API Test"), "Incorrect!");
+        }
+
+        [Test]
+        public void AuthenticationMecanism()
+        {
+            var client = new RestClient(url);
+            var request = new RestRequest("auth/login", Method.POST);
+
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody(new {email = "bruno@email.com", password = "bruno"});
+
+            var response = client.ExecuteTaskAsync(request).GetAwaiter().GetResult();
+            var access_token = response.DeserializeResponse()["access_token"];
+
+            var jwtAuth = new JwtAuthenticator(access_token);
+            client.Authenticator = jwtAuth;
+
+            var getRequest = new RestRequest("products/{productId}", Method.GET);
+            getRequest.AddUrlSegment("productId", 1);
+
+            var result = client.ExecuteAsyncRequest<Product>(getRequest).GetAwaiter().GetResult();
+            NUnit.Framework.Assert.That(result.Data.name, Is.EqualTo("Product001"), "Product OK!");
         }
     }
 }

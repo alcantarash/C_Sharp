@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Posts.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Steps\GetPostsSteps.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
